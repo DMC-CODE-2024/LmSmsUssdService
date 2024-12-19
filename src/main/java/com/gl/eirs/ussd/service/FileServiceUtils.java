@@ -68,7 +68,7 @@ public class FileServiceUtils {
             Date date = new Date();
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
             logger.info("Moving File:{} to {}", file.getFileName(), moveFilePath);
-            Files.move(Paths.get(file.getFilePath() + "/" + file.getFileName()), Paths.get(moveFilePath + "/" + sdf.format(date) + "_" +  file.getFileName()));
+            Files.move(Paths.get(file.getFilePath() + "/" + file.getFileName()), Paths.get(moveFilePath + "/" + sdf.format(date) + "_" +  file.getFileName()) , StandardCopyOption.REPLACE_EXISTING );
             logger.info("Moved File:{} to {}", file.getFileName(), moveFilePath);
         } catch (IOException e) {
             e.printStackTrace();
