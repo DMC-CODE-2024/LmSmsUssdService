@@ -79,7 +79,7 @@
     </dependencies>
 
     <build>
-        <finalName>lm_sms_usage_1205</finalName>
+        <finalName>lm_sms_usage_1205_1.0.0</finalName>
 
         <plugins>
             <plugin>
