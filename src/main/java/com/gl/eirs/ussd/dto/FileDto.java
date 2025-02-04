@@ -50,12 +50,12 @@ public class FileDto {
             File file1 = new File(file);
             logger.info("Getting the file size for file {}", file1.toURI());
             Path pathFile = Paths.get(file1.toURI());
-            return (long) Files.lines(pathFile).count();
+            var a  =(long) Files.lines(pathFile).count();
+            return a ==0 ? 0 : a-1;
         } catch (IOException e) {
             e.printStackTrace();
         }
         return 0L;
     }
-
 
 }
