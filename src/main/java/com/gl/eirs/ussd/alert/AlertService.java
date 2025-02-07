@@ -34,7 +34,7 @@ public class AlertService implements IAlert{
             try {
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_JSON);
-                HttpEntity<AlertDto> request = new HttpEntity<AlertDto>(alertDto, headers);
+                HttpEntity<AlertDto> request = new HttpEntity<>(alertDto, headers);
                 SimpleClientHttpRequestFactory clientHttpRequestFactory = new SimpleClientHttpRequestFactory();
                 clientHttpRequestFactory.setConnectTimeout(1000);
                 clientHttpRequestFactory.setReadTimeout(1000);

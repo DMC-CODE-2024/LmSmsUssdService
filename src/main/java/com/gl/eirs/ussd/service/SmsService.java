@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 
 @Service
@@ -27,6 +29,8 @@ public class SmsService {
         int failureCount=0;
         int succesCount=0;
         try(BufferedReader reader = new BufferedReader(new FileReader(fileDto.getFilePath() +"/" + fileDto.getFileName()))) {
+            Files.createDirectories(Paths.get(appConfig.getErrorFilePath() ));
+
             File outFile = new File(appConfig.getErrorFilePath() + "/error_" + fileDto.getFileName());
             PrintWriter writer = new PrintWriter(outFile);
             try {

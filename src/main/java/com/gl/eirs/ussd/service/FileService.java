@@ -136,16 +136,12 @@ public class FileService {
                 alertService.raiseAnAlert("alert5600", "", "", 0);
                 return;
             }
-
             for (FileDto fileDto : fileDtos) {
                 int moduleAuditId = 0;
                 long startTime = System.currentTimeMillis();
                 try {
-
-
                     logger.info("Processing the file {}", fileDto.getFileName());
                     fileServiceUtils.checkFileUploaded(fileDto);
-
                     // create modules_audit_trail entry for this file.
                     ModulesAuditTrail modulesAuditTrail = modulesAuditTrailBuilder.forInsert(201, "INITIAL", "NA", smsModuleName + appConfig.getOperator(), smsFeatureName, "", fileDto.getFileName(), LocalDateTime.now());
                     ModulesAuditTrail entity = modulesAuditTrailRepository.save(modulesAuditTrail);
